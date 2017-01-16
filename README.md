@@ -12,4 +12,11 @@
     
     _pzxstarClickView1 = [[PZXStarClickView alloc]initWithFrame:CGRectMake(0, 200, self.view.bounds.size.width, 57) numberOfStars:5];
     [self.view addSubview:_pzxstarClickView1];
+    
+ //delegate
+    -(void)pzxStarClickView:(PZXStarClickView *)starView clickStarPrecent:(CGFloat)percent{
+    
+    NSLog(@"%f",percent);
+    
+}
 ```
