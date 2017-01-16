@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import "PZXStarClickView.h"
-@interface ViewController ()
+@interface ViewController ()<PZXStarClickViewDelegate>
 @property (strong, nonatomic) IBOutlet PZXStarClickView *pzxstarClickView;
 
 
@@ -19,14 +19,15 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    //这是用storyBoard建立的
-    _pzxstarClickView.allowIsDecimalStar = YES;
+    [super viewDidLoad];    _pzxstarClickView.allowIsDecimalStar = YES;
     _pzxstarClickView.isAnimagioin = YES;
-    
+    _pzxstarClickView.delegate =self;
+
     
     _pzxstarClickView1 = [[PZXStarClickView alloc]initWithFrame:CGRectMake(0, 200, self.view.bounds.size.width, 57) numberOfStars:5];
+    _pzxstarClickView.delegate = self;
     [self.view addSubview:_pzxstarClickView1];
+         
 
 }
 
@@ -36,5 +37,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+-(void)pzxStarClickView:(PZXStarClickView *)starView clickStarPrecent:(CGFloat)percent{
+    
+    NSLog(@"%f",percent);
+    
+}
 @end
